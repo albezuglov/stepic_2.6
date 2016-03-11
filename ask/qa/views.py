@@ -3,6 +3,7 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import *
+from .forms import *
 
 # Create your views here.
 def test(request, *args, **kwargs):
@@ -35,3 +36,14 @@ def question(request, *args, **kwargs):
 
     return render(request, 'question.html', {'question': q})    
     
+def ask_form(request, *args, **kwargs):
+    if request.method == 'POST':
+        form = AskForm(request.POST)
+        if form.is_Valid():
+            question = form.save()
+            url = question.get_url()
+            return HttpResponseRedirect()
+    else:
+        form = AskForm()
+
+    return render(request, 'ask_form.html', {'form': form})

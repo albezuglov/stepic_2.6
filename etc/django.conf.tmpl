@@ -1,0 +1,15 @@
+CONFIG = {
+    'mode': 'wsgi',
+#    'environment': {
+#        'PYTHONPATH': '/path/to/custom/python/packages',
+#    },
+    'working_dir': '%ROOT_DIR%/ask/',
+    # 'user': 'www-data',
+    # 'group': 'www-data',
+    #'python': '/usr/bin/python',
+    'args': (
+        '--bind=0.0.0.0:8000',
+#        '--workers=16',
+        'ask.wsgi',
+    ),
+}

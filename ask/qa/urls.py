@@ -7,5 +7,5 @@ urlpatterns = [
    url('^popular/$', posts_list, name='posts-by-rating', kwargs={'sort_by': 'rating'}),
    url('^question/(?P<id>\d+)/$', question, name='question'),
    url('^ask/$', ask_form, name='ask-form'),
-  # url('^answer/$', answer_form, name='answer-form'),
+   url('^answer/$', answer_form, name='answer-form'),
 ]

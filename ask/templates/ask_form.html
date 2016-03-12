@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
 {% block main %}
-  {{ form.as_table }}
+  <form class="ask_form" method="post" action="{% url 'ask-form' %}">
+  {% csrf_token %}
+  {{ form.as_ul }}
+  <button type="submit" class="btn submit">Сохранить </button>
 {% endblock %}

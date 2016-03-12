@@ -4,6 +4,11 @@
 	<div class="question">
            {{ question.title }}<br>
            {{ question.text }}
+  <form class="answer_form" method="post" action="{% url 'answer-form' %}">
+  {% csrf_token %}
+  {{ form.as_ul }}
+  <button type="submit" class="btn submit">Сохранить </button>
+  </form>
 	   <ul class="answers">
 	    {% for answer in question.answer_set.all %}
                <li class="answer">{{answer.text}}</li>
